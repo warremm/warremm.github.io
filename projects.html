@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Projects | Warren Johnson Portfolio</title>
+        <meta name="description" content="Discovery Project and technical work by Warren Johnson.">
+        <!-- Google Fonts: Fraunces (headings) + Karla (body) -->
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="nav">
+            <div class="wrap">
+                <a class="logo" href="index.html">Warren Johnson</a>
+                <button class="burger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div class="wrap page-title fade">
+                <h1>Projects</h1>
+                <p class="tag" style="color:var(--muted)">Hands-on work, documented honestly, including what went wrong.</p>
+            </div>
+            <section id="discovery">
+                <div class="wrap">
+                    <h2 class="fade">Discovery Project: RFID Bike Lock</h2>
+                    <div class="fade">
+                        <h3>The problem</h3>
+                        <p>Micromobility—particularly bicycles and electric scooters—is the primary mode of daily transit for thousands of students navigating the Georgia Institute of Technology campus. However, conventional locking mechanisms force riders into a frustrating compromise between security and convenience. Mechanical U-locks and cable locks rely on physical keys that are easily lost between classes or combination dials that are slow to operate in the rain and dark, while commercial Bluetooth smart locks suffer from app pairing delays, smartphone battery drain, and inflated retail prices exceeding $150. For my ECE 1100 Individual Discovery Project, I set out to solve this campus security bottleneck by designing and prototyping a low-cost, standalone Smart RFID Bike Lock and Key System. My goal was to create a rugged, weather-resistant electromechanical lock that authenticates a rider in under 500 milliseconds using a passive 13.56 MHz RFID key fob or BuzzCard-compatible tag—eliminating physical keys and smartphone dependencies altogether.</p>
+                        <h3>The process</h3>
+                        <p>Engineering the RFID Bike Lock required integrating three distinct technical domains: radio-frequency digital communication, high-current electromechanical power switching, and precision 3D CAD enclosure fabrication.</p>
+                        <p>First, I architected the sensing and logic stage around a 13.56 MHz MFRC522 RFID transceiver module communicating with a central microcontroller over the Serial Peripheral Interface (SPI) bus. When a passive RFID tag enters the inductive coupling field of the reader's PCB antenna, the transceiver energizes the tag and reads its unique 32-bit hexadecimal identifier (UID). I wrote embedded firmware that polls the SPI bus, compares the incoming UID hash against an internal whitelist of authorized credentials, and triggers visual (LED) and auditory (piezo buzzer) feedback.</p>
+                        <p>Second, because a microcontroller GPIO pin can only source a few milliamperes at 3.3V or 5V—far below the current required to move a heavy mechanical locking bolt—I designed a dedicated power switching stage. Using an N-channel power MOSFET operating as a low-side switch alongside a flyback protection diode to suppress inductive voltage spikes, the microcontroller safely drives a 12V electromechanical cabinet solenoid. To make the system portable, I incorporated buck voltage regulation and programmed low-quiescent-current sleep states so the lock conserves battery capacity when idle between classes.</p>
+                        <p>Third, drawing on my background as an Autodesk Certified User in Revit and AutoCAD, I modeled a custom multi-part structural housing designed to shield the PCB, battery pack, and solenoid from physical tampering and Atlanta rainstorms. Utilizing the 3D printers and prototyping tools at Georgia Tech's Interdisciplinary Design Commons (The Hive), I fabricated the enclosure with tight dimensional tolerances for the solenoid throw bolt and an external window allowing unimpeded 13.56 MHz RF signal propagation.</p>
+                        <h3>The outcome</h3>
+                        <p>The resulting prototype successfully demonstrates rapid, keyless electromechanical actuation: presenting an authorized 13.56 MHz RFID tag triggers UID verification and retracts the 12V solenoid locking bolt in less than half a second, while unauthorized tags are immediately rejected with an audible alert. Completing this Discovery Project bridged the gap between theoretical circuit diagrams and physical hardware constraints, teaching me firsthand how inductive kickback, battery internal resistance, and 3D-printed mechanical tolerances interact in real-world embedded systems. Moving forward into the Discovery Project Showcase and beyond, my planned revisions include transitioning the breadboard circuit onto a custom-milled PCB at The Hive, implementing cryptographic MIFARE Classic sector authentication rather than static UID matching to prevent tag cloning, and adding a low-voltage battery indicator.</p>
+                    </div>
+                    <h3 class="fade" style="margin-top:2rem">Project gallery (click to enlarge)</h3>
+                    <div class="gallery fade">
+                        <img src="assets/elementor-placeholder-image.png" data-full="assets/elementor-placeholder-image.png" alt="Close-up of the soil moisture sensor probe" width="480" height="360" loading="lazy">
+                        <img src="assets/elementor-placeholder-image.png" data-full="assets/elementor-placeholder-image.png" alt="Assembled prototype circuit board" width="480" height="360" loading="lazy">
+                        <img src="assets/elementor-placeholder-image.png" data-full="assets/elementor-placeholder-image.png" alt="Graph of moisture readings over a week" width="480" height="360" loading="lazy">
+                        <img src="assets/elementor-placeholder-image.png" data-full="assets/elementor-placeholder-image.png" alt="Finished monitor beside a potted plant" width="480" height="360" loading="lazy">
+                        <img src="assets/elementor-placeholder-image.png" data-full="assets/elementor-placeholder-image.png" alt="Testing the monitor in the lab" width="480" height="360" loading="lazy">
+                    </div>
+                    <p class="fade"><em></em></p>
+                </div>
+            </section>
+            <section class="band">
+                <div class="wrap">
+                    <h2 class="fade">More work</h2>
+                    <p class="fade">More to come soon!</p>
+                    <div class="cards">
+                        <div class="card fade">
+                            <h3>Bike Generator</h3>
+                            <p>Coming soon.</p>
+                        </div>
+                        <div class="card fade">
+                            <h3>WIP</h3>
+                            <p>Coming soon.</p>
+                        </div>
+                        <div class="card fade soon">
+                            <h3>WIP</h3>
+                            <p>Coming soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="lightbox" role="dialog" aria-label="Image viewer">
+                <button class="lb-close" aria-label="Close">&times;</button>
+                <button class="lb-prev" aria-label="Previous">&lsaquo;</button>
+                <div>
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+                <button class="lb-next" aria-label="Next">&rsaquo;</button>
+            </div>
+        </main>
+        <footer>
+            <div class="wrap">
+                <span>&#9786; Warren Johnson - Georgia Institute of Technology.</span>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/warrenbjohnson/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9.5 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21h-4z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/warremm" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.300.7-1.600-2.600-.3-5.300-1.300-5.300-5.700 0-1.300.5-2.300 1.200-3.100-.1-.3-.5-1.500.1-3.100 0 0 1-.3 3.200 1.200a11 11 0 0 1 5.800 0c2.200-1.500 3.200-1.200 3.200-1.200.6 1.600.2 2.800.1 3.100.8.800 1.200 1.800 1.200 3.100 0 4.400-2.700 5.400-5.300 5.700.4.4.8 1.100.8 2.200v3.200c0 .3.2.7.8.6A11.500 11.500 0 0 0 12 .5z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/warremmm/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zM17.500 5.800a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <button id="top" aria-label="Back to top">&uarr;</button>
+        <script src="js/main.js"></script>
+    </body>
+</html>
